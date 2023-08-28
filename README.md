@@ -1,1 +1,3 @@
-# ACS3310fizzBuzzUnitTesting
+# String-Lib
+
+A JS library for strings.
