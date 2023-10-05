@@ -1,44 +1,30 @@
-//Challenge 1 capitalize() -makes the first character of a given string uppercase.
-const str = 'hello world'
-
-function capitalize(str) {
-    const first = str[0].toUpperCase()
-    const rest = str.slice(1)
-    return first + rest
-}
-
-console.log(capitalize(str))
-console.log(capitalize('str'))
-
-//Challenge 2 allCaps()- makes all characters uppercase. (this is the same as str.toUpperCase())
-
-function allCaps(str) {
-    after = str.toUpperCase()
-    return after
-}
-
-console.log(allCaps(str))
-console.log(allCaps('str'))
-
-//Challenge 3 capitalizeWords()- makes the first character of each word uppercase. Imagine that each word is separated by a space.
-
-function capitalizeWords(str) {
+// Challenge 1: capitalize() - makes the first character of a given string uppercase.
+function capitalize(str: string): string {
+    if (typeof str !== 'string' || str.length === 0) return '';
+    return str[0].toUpperCase() + str.slice(1);
+  }
+  
+  // Challenge 2: allCaps() - makes all characters uppercase.
+  function allCaps(str: string): string {
+    return str.toUpperCase();
+  }
+  
+  // Challenge 3: capitalizeWords() - makes the first character of each word uppercase.
+  function capitalizeWords(str: string): string {
     return str
       .split(' ')
       .map((word) => capitalize(word))
       .join(' ');
   }
-
-  // Challenge 4: removeExtraSpaces() - Removes all spaces from the beginning and
-// end of a String along with any extra spaces in the middle.
-function removeExtraSpaces(str) {
+  
+  // Challenge 4: removeExtraSpaces() - Removes all spaces from the beginning and end of a String along with any extra spaces in the middle.
+  function removeExtraSpaces(str: string): string {
     return str.trim().split(/\s+/).join(' ');
   }
   
-  // Stretch: capitalizeHeadline() - Capitalize all of the words in a string
-  // that are not articles, prepositions, or conjunctions.
-  function capitalizeHeadline(str) {
-    const exceptions = [
+  // Stretch: capitalizeHeadline() - Capitalize all of the words in a string that are not articles, prepositions, or conjunctions.
+  function capitalizeHeadline(str: string): string {
+    const exceptions: string[] = [
       'the',
       'in',
       'a',
@@ -61,10 +47,8 @@ function removeExtraSpaces(str) {
       .join(' ');
   }
   
-  // Challenge 5: kebobCase() - Removes extra spaces and replaces spaces
-  // with the hyphen "-", and makes all characters lowercase.
-  function kebobCase(str) {
-    // eslint-disable-next-line no-param-reassign
+  // Challenge 5: kebobCase() - Removes extra spaces and replaces spaces with the hyphen "-", and makes all characters lowercase.
+  function kebobCase(str: string): string {
     str = str
       .toLowerCase()
       .split('')
@@ -82,15 +66,13 @@ function removeExtraSpaces(str) {
     return removeExtraSpaces(str).split(' ').join('-');
   }
   
-  // Challenge 6: snakeCase() - Removes extra space and replaces
-  // spaces with an underscore "_", and makes all characters lowercase.
-  function snakeCase(str) {
+  // Challenge 6: snakeCase() - Removes extra space and replaces spaces with an underscore "_", and makes all characters lowercase.
+  function snakeCase(str: string): string {
     return kebobCase(str).replace(/-/g, '_');
   }
   
-  // Challenge 7: camelCase() - Lowercases the first character of the first word.
-  // Then uppercases the first character of all other words, and removes all spaces.
-  function camelCase(str) {
+  // Challenge 7: camelCase() - Lowercases the first character of the first word. Then uppercases the first character of all other words, and removes all spaces.
+  function camelCase(str: string): string {
     const words = str.split(' ');
     return (
       words[0].toLowerCase()
@@ -102,12 +84,12 @@ function removeExtraSpaces(str) {
   }
   
   // Challenge 8: shift() - Takes the first character of a string and moves to the end of a string.
-  function shift(str, n = 1) {
+  function shift(str: string, n: number = 1): string {
     return str.slice(n) + str.slice(0, n);
   }
   
   // Challenge 9: makeHashTag() - Capitalizes all words and adds a hashtag to the beginning.
-  function makeHashTag(str) {
+  function makeHashTag(str: string): string[] {
     const words = str
       .split(' ')
       .sort((a, b) => b.length - a.length)
@@ -116,13 +98,12 @@ function removeExtraSpaces(str) {
   }
   
   // Challenge 10: isEmpty() - Returns true if the given string is empty or contains only whitespace.
-  // White space includes: spaces, line returns, and tabs.
-  function isEmpty(str) {
+  function isEmpty(str: string): boolean {
     return str.trim() === '';
   }
   
   // Exports
-  module.exports = {
+  export {
     capitalize,
     allCaps,
     capitalizeWords,
